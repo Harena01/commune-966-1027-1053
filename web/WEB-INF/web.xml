@@ -10,4 +10,12 @@
         <servlet-name>insertMariage</servlet-name>
         <url-pattern>/mariage</url-pattern>
     </servlet-mapping>
+	<servlet>
+       <servlet-name>ServletNaissance</servlet-name>
+       <servlet-class>etu1027.ServletNaissance</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletNaissance</servlet-name>
+		<url-pattern>/servletNaissance.jsp</url-pattern>
+	</servlet-mapping>
 </web-app>
