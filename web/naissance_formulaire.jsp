@@ -10,8 +10,10 @@
 <%@ page import ="java.sql.Connection" %>
 <%@ page import="utils.Helper" %>
 <% 
-Personne[] personneF = (Personne[]) new Personne().find();
-Personne[] personneM = (Personne[]) new Personne().find(); 
+Connection connection =Helper.getConnection();
+Personne[] personneF = (Personne[]) new Personne().findByGenre('F', connection);
+Personne[] personneM = (Personne[]) new Personne().findByGenre('M', connection); 
+connection.close();
 Naissance personne = null; if(request.getAttribute("bouton")!= null){ personne = (Naissance)request.getAttribute("personne");}
  %>
 <!DOCTYPE html>
