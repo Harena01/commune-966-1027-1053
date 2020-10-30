@@ -7,7 +7,7 @@
     
    <servlet>
     <servlet-name>insertMariage</servlet-name>
-    <servlet-class>etu966_harena.servlet.InsertMariage</servlet-class>
+    <servlet-class>etu966_harena.InsertMariage</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>insertMariage</servlet-name>
