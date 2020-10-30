@@ -9,7 +9,6 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import java.sql.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -46,7 +45,11 @@ public class Base extends HttpServlet{
             this.connection.close();
             this.statement.close();
 
-        this.getServletContext().getRequestDispatcher(vue).forward( request, response );
+            PrintWriter out = response.getWriter();
+
+            out.print(perso[1].getNom());
+
+        // this.getServletContext().getRequestDispatcher(vue).forward( request, response );
 
 
         } catch (SQLException e) {

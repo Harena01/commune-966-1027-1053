@@ -1,4 +1,5 @@
-<%@ page import="etu966_harena.Personne" %> 
+<%@page import="java.util.ArrayList"%>
+<%@page import="etu966_harena.Personne"%>
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
@@ -6,9 +7,12 @@
     int countL = lahybase.size();
     String[] listeLahy = new String[countL];
 
-    Personne[] perso = (Personne) request.getAttribute("personne");
+    Personne[] perso = (Personne[]) request.getAttribute("personne");
     String[] lahy = Personne.getName(perso,"homme");
     String[] vavy = Personne.getName(perso,"femme");
+
+    int[] idLahy = Personne.getId(perso,"homme");
+    int[] idVavy = Personne.getId(perso,"femme");
 %>
 <!DOCTYPE html>
 <html>
@@ -22,16 +26,16 @@
             <label for="homme">
                <select name="homme"> 
                     <%  
-                        for(String lahy:listeLahy){ %>
-                            <option value="<%=i%>"><%=listeLahy%> </option>
+                        for(int i = 0 ; i < lahy.length ; i++){ %>
+                            <option value="<%=idLahy[i]%>"><%=lahy[i]%> </option>
                         <% } %>
                 </select>
 
             <label for="femme">
                <select name="femme"> 
                     <%  
-                        for(String vavy:listeVavy){ %>
-                            <option value="<%=i%>"><%=listeVavy[i]%> </option>
+                        for(int i = 0 ; i < vavy.length ; i++){ %>
+                            <option value="<%=idVavy[i]%>"><%=vavy[i]%> </option>
                         <% } %>
                 </select>
 

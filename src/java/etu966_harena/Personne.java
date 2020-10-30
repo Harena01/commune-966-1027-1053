@@ -94,6 +94,22 @@ public class Personne extends BaseModele {
         return valiny;
     }
 
+    public static int[] getId (Personne[] data,String sexe){
+        int count = data.length;
+        ArrayList temp = new ArrayList<Integer>();
+        for (int i = 0 ; i < count ; i++){
+            if(data[i].getSexe()==sexe){
+                temp.add(data[i].getId()); 
+            }
+        }
+        Integer[] temp1 = (Integer[]) temp.toArray();
+        int[] valiny = new int[temp1.length];
+        for(int i = 0 ; i < temp1.length ; i++)
+            valiny[i] = temp1[i].intValue();
+
+        return valiny;
+    }
+
     @Override
     public Object findById() throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
