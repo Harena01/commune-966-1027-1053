@@ -28,12 +28,10 @@ public class ServletNaissance extends HttpServlet {
 			request.getRequestDispatcher("naissance_formulaire.jsp").forward(request, response);
 		}else if(bouton.compareTo("delete")==0){
 			p.remove();
-			Naissance[] liste = (Naissance[]) new Naissance().find();
-			request.setAttribute("liste", liste);
 			request.getRequestDispatcher("naissance_liste.jsp").forward(request, response);
 		}
 		}catch(Exception e){
-			
+			throws new Exception(e.getMessage());
 		}finally{
 			
 		}
@@ -43,11 +41,9 @@ public class ServletNaissance extends HttpServlet {
 		try{
 			Naissance nouveau = new Naissance(request.getParameter("nom"),  request.getParameter("prenom"),	request.getParameter("sexe"),	new Integer(request.getParameter("pere")).intValue(),new Integer(request.getParameter("mere")).intValue(),	request.getParameter("dateNaissance"),	request.getParameter("lieu"));
 			nouveau.save();
-			Naissance[] liste =  (Naissance[]) new Naissance().find();
-			request.setAttribute("liste", liste);
 			request.getRequestDispatcher("naissance_liste.jsp").forward(request, response);
 		}catch(Exception e){
-			
+			throws new Exception(e.getMessage());
 		}finally{}
     }
 }
