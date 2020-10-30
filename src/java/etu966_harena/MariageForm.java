@@ -98,10 +98,10 @@ public class MariageForm {
         utilisateur.setPrenom(nom);
 
         if (erreur.isEmpty()) {
-            setResultat("Succès de l'inscription.");
+        setResultat("Succès de l'inscription.");
         } else {
             setResultat("Échec de l'inscription.");
-        }
+        }   
     
         return utilisateur;
     }
