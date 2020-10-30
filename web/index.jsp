@@ -6,6 +6,6 @@
     <title> commune </title>
 </head>
 <body>
-    <a href="mariage.jsp">cree mariage</a>
+    <a href="/commune-966-1027-1053/mariage">cree mariage</a>
 </body>
 </html>

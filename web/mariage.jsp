@@ -8,25 +8,25 @@
         <link type="text/css" rel="stylesheet" href="form.css" />
     </head>
     <body>
-        <form method="post" action="inscription">
+        <form method="post" action="mariage">
             <fieldset>
-                <legend>Inscription</legend>
+                <legend>Mariage</legend>
                 <p>Vous pouvez inscrire via ce formulaire.</p>
 
-                <label for="nom">Nom <span class="requis">*</span></label>
-                <input type="nom" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>" size="20" maxlength="60" />
-                <span class="erreur">${form.erreurs['nom']}</span>
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>" size="20" maxlength="20" />
                 <br />
 
-                <label for="prenom">Prenom <span class="requis">*</span></label>
-                <input type="prenom" id="prenom" name="prenom" value="" size="20" maxlength="20" />
-                <span class="erreur">${form.erreurs['prenom']}</span>
+                <label for="prenom">Prenom <span class="requis"></span></label>
+                <input type="prenom" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>" size="20" maxlength="20" />
                 <br />
 
                 <input type="submit" value="Inscription" class="sansLabel" />
                 <br />
-                
-                <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+                <%
+                    if(request.getAttribute(form) != null)
+                    out.print(request.getAttribute(form));
+                %>
             </fieldset>
         </form>
     </body>
