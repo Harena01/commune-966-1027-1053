@@ -15,17 +15,11 @@ create table personne (
     sexe INTEGER
 );
 
-create table typeMariage (
-    id INTEGER PRIMARY KEY,
-    nom VARCHAR(10)
-);
-
 create table mariage (
     id INTEGER PRIMARY KEY,
     idPersonne1 INTEGER CONSTRAINT fk_personne1 REFERENCES personne,
     idPersonne2 INTEGER CONSTRAINT fk_personne2 REFERENCES personne,
     dateMariage DATE,
-    typeMariage INTEGER CONSTRAINT type_mariage REFERENCES typeMariage,
     nomFamille VARCHAR(10)
 );
 
@@ -34,7 +28,6 @@ create sequence SQ_logi;
 create sequence SQ_commune;
 create sequence SQ_mariage;
 create sequence SQ_personne;
-create sequence SQ_typeMariage;
 
 
 insert into logi values (SQ_logi.nextval,'commune1','123456');
