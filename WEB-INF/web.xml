@@ -3,17 +3,14 @@
    xmlns="http://java.sun.com/xml/ns/javaee"
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
    id="WebApp_ID" version="3.0">
-   <display-name>ServletTutorial</display-name>
+   <display-name>ServletCommune</display-name>
     
    <servlet>
-       <servlet-name>helloServlet</servlet-name>
-       <servlet-class>servlet.HelloServlet</servlet-class>
-   </servlet>
- 
-   <servlet-mapping>
-       <servlet-name>helloServlet</servlet-name>
-       <url-pattern>/hello</url-pattern>
-   </servlet-mapping>
-
-
+    <servlet-name>insertMariage</servlet-name>
+    <servlet-class>etu966_harena.InsertMariage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>insertMariage</servlet-name>
+        <url-pattern>/mariage</url-pattern>
+    </servlet-mapping>
 </web-app>

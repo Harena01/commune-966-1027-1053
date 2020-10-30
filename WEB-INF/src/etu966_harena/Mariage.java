@@ -2,9 +2,8 @@ package etu966_harena;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
+import utils.Helper; 
 import modele.BaseModele;
-import utils.Helper;
 
 public class Mariage extends BaseModele {
     private String nom;

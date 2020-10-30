@@ -1,4 +1,4 @@
-package etu966_harena;
+package servlet;
 
 import etu966_harena.Mariage;
 
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertMariage extends HttpServlet{
     public static final String ATT_USER = "utilisateur";
     public static final String ATT_FORM = "form";
-    public static String vue = "/WEB-INF/jsp/mariage.jsp";
+    public static String vue = "mariage.jsp";
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
