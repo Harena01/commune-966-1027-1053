@@ -1,4 +1,4 @@
-package servlet;
+package etu966_harena;
 
 import etu966_harena.Mariage;
 
