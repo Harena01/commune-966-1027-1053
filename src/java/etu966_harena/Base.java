@@ -9,7 +9,6 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import java.sql.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -30,31 +29,27 @@ public class Base extends HttpServlet{
             Class.forName("oracle.jdbc.driver.OracleDriver");
             this.connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","commune","123456");            
             this.statement = this.connection.createStatement();
-            ResultSet resultLahy = this.statement.executeQuery("select nom from personne where sexe=1");
-            ArrayList listLahy = new ArrayList<String>();
-            while(resultLahy.next()){
-                listLahy.add(resultLahy.getString(1));
+            ResultSet result = this.statement.executeQuery("select * from personne");
+            ArrayList[] list = new ArrayList[8];
+            for (int i = 0 ; i < 8 ; i++){
+                while(result.next()){
+                    int id = 0;
+                    list[i].add(result.getString(id));
+                    id++;
+                }
             }
-
-            ResultSet reslutVavy = this.statement.executeQuery("select nom from personne where sexe=0");
-            ArrayList listvavy = new ArrayList<String>();
-            while (reslutVavy.next()){
-                listvavy.add(reslutVavy.getString(1));
-            }
-            ResultSet typeResult = this.statement.executeQuery("select nom from personne where sexe=0");
-            ArrayList typeList = new ArrayList<String>();
-            while (typeResult.next()){
-                typeList.add(typeResult.getString(1));
-            }
-
-            request.setAttribute("lahy",listLahy);
-            request.setAttribute("vavy",listvavy);
-            request.setAttribute("type",typeList);
+            Personne[] perso = Personne.array(list,8);
+            
+            request.setAttribute("personne",perso);
             
             this.connection.close();
             this.statement.close();
 
-        this.getServletContext().getRequestDispatcher(vue).forward( request, response );
+            PrintWriter out = response.getWriter();
+
+            out.print(perso[1].getNom());
+
+        // this.getServletContext().getRequestDispatcher(vue).forward( request, response );
 
 
         } catch (SQLException e) {

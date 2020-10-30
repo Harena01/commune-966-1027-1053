@@ -1,4 +1,6 @@
 package etu966_harena ;
+import java.util.ArrayList;
+
 import modele.BaseModele;
 
 public class Personne extends BaseModele {
@@ -8,11 +10,11 @@ public class Personne extends BaseModele {
     private String sexe;
 
     public String getNom() {
-        return name;
+        return nom;
     }
  
     public void setNom(String name) {
-        this.name = name;
+        this.nom = name;
     }
 
     public int getId(){
@@ -64,6 +66,53 @@ public class Personne extends BaseModele {
         setNom(nom);
         setPrenom(prenom);
         setSexe(sexe);
+    }
+
+    public Personne (){}
+
+    public static Personne[] array (ArrayList[] list,int size){
+        Personne[] valiny = new Personne[size];
+        for(int j = 0 ; j < size ; j++){
+            int arg1 = (int) list[j].get(0);
+            String arg2 = (String) list[j].get(1);
+            String arg3 = (String) list[j].get(2);
+            int arg4 =  (int) list[j].get(3); 
+            valiny[j] = new Personne(arg1,arg2,arg3,arg4);
+        }
+        return valiny;
+    }
+
+    public static String[] getName (Personne[] data,String sexe){
+        int count = data.length;
+        ArrayList temp = new ArrayList<String>();
+        for (int i = 0 ; i < count ; i++){
+            if(data[i].getSexe()==sexe){
+                temp.add(data[i].getNom()); 
+            }
+        }
+        String[] valiny = (String[]) temp.toArray();
+        return valiny;
+    }
+
+    public static int[] getId (Personne[] data,String sexe){
+        int count = data.length;
+        ArrayList temp = new ArrayList<Integer>();
+        for (int i = 0 ; i < count ; i++){
+            if(data[i].getSexe()==sexe){
+                temp.add(data[i].getId()); 
+            }
+        }
+        Integer[] temp1 = (Integer[]) temp.toArray();
+        int[] valiny = new int[temp1.length];
+        for(int i = 0 ; i < temp1.length ; i++)
+            valiny[i] = temp1[i].intValue();
+
+        return valiny;
+    }
+
+    @Override
+    public Object findById() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

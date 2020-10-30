@@ -78,4 +78,9 @@ public class Mariage extends BaseModele {
     public void remove() throws Exception {
         // TODO Auto-generated method stub
     }
+
+    @Override
+    public Object findById() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
