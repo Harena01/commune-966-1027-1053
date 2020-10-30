@@ -10,6 +10,17 @@
         <servlet-name>insertMariage</servlet-name>
         <url-pattern>/mariage</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
+
+    <servlet>
+        <servlet-name>base</servlet-name>
+        <servlet-class>etu966_harena.Base</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>base</servlet-name>
+        <url-pattern>/base</url-pattern>
+    </servlet-mapping>
+=======
 	<servlet>
       <servlet>
        <servlet-name>ServletNaissance</servlet-name>
@@ -19,4 +30,5 @@
 		<servlet-name>ServletNaissance</servlet-name>
 		<url-pattern>/servletNaissance.jsp</url-pattern>
 	</servlet-mapping>
+>>>>>>> 3c176cbab0a985a18032e75277fa50c7e4aaca08
 </web-app>

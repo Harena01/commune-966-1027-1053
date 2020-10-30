@@ -2,6 +2,8 @@ package etu966_harena;
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class InsertMariage extends HttpServlet{
-    public static final String ATT_USER = "utilisateur";
-    public static final String ATT_FORM = "form";
     public static String vue = "/mariage.jsp";
 
 
@@ -22,10 +22,11 @@ public class InsertMariage extends HttpServlet{
         MariageForm form = new MariageForm();
 		
         Mariage utilisateur;
-        utilisateur = form.inscrireMariage( request );
-		
-        request.setAttribute( ATT_FORM, form );
-        request.setAttribute( ATT_USER, utilisateur );
+        utilisateur = form.inscrireMariage( request ); 
+        PrintWriter out = response.getWriter();
+        out.print(utilisateur.getPrenom());
+        request.setAttribute( "form", form );
+        request.setAttribute( "utilisateur", utilisateur );
 		
         this.getServletContext().getRequestDispatcher(vue).forward( request, response );
     }
