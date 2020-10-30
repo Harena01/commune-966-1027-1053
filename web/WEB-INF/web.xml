@@ -11,8 +11,9 @@
         <url-pattern>/mariage</url-pattern>
     </servlet-mapping>
 	<servlet>
+      <servlet>
        <servlet-name>ServletNaissance</servlet-name>
-       <servlet-class>etu1027.ServletNaissance</servlet-class>
+       <servlet-class>etu1027_Onintsoa.ServletNaissance</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ServletNaissance</servlet-name>
