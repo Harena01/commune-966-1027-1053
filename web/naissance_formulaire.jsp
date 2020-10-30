@@ -39,7 +39,7 @@ Naissance personne = null; if(request.getAttribute("bouton")!= null){ personne =
                      <label for="inputNom">Nom pere</label>
                      <select name=" pere" value="<% if(personne!=null){out.print (personne.getPere().getNom()+" "+personne.getPere().getPrenom());} %>"> </select>
 					 <% for (int i=0;i<personneM.length;i++){%>
-					 <option value="<%out.print(personneM[i].getId()); %>" > <% out.print(personneM[i].getNom()); %> </option>
+					 <option value="<% out.print(personneM[i].getId()); %>" > <% out.print(personneM[i].getNom()); %> </option>
 					 <% } %>
                 </div>
                 <div class="form-group col-md-6">
