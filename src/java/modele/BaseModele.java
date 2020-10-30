@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package modele;
 
 /**
  *
- * @author ITU
+ * @author ONINTSOA
  */
-public abstract class BaseModele {
-    private int id;
+public abstract class BaseModele  {
+     private int id;
 
     public int getId() {
         return id;
@@ -23,6 +24,8 @@ public abstract class BaseModele {
     public abstract void save()throws Exception; 
     
     public abstract Object[] find() throws Exception;
+    
+    public abstract Object findById() throws Exception;
     
     public abstract void update() throws Exception;
     
